@@ -34,7 +34,7 @@ def main():
         f.write('\n')
     f.close()
 
-    wc = WordCloudFa()
+    wc = WordCloudFa(width=1200, height=800)
     with open('verses.txt', 'r') as file:
         text = file.read()
     word_cloud = wc.generate(text)
