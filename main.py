@@ -1,5 +1,6 @@
 import sqlite3
 from sqlite3 import Error
+from wordcloud_fa import WordCloudFa
 
 class DB:
     def __init__(self,file):
@@ -33,6 +34,13 @@ def main():
         f.write('\n')
     f.close()
 
+    wc = WordCloudFa()
+    with open('verses.txt', 'r') as file:
+        text = file.read()
+    word_cloud = wc.generate(text)
+    image = word_cloud.to_image()
+    image.show()
+    image.save('hafez.png')
 
 
 if __name__ == "__main__":
