@@ -22,7 +22,7 @@ class DB:
 
 def main():
     database = DB("ganjoor.s3db")
-    database.connect();
+    database.connect()
     rows = database.select("""select p.cat_id,v.text 
                                 from poem as p join verse as v on p.id=v.poem_id 
                                 where p.cat_id=24
